@@ -1,8 +1,14 @@
 ##########DEPENDENCIES#############
+import collections
+from collections.abc import MutableMapping
+
+collections.MutableMapping = collections.abc.MutableMapping
+
+
 from dronekit import connect, VehicleMode,LocationGlobalRelative,APIException
 import time
 import socket
-import exceptions
+# import exceptions
 import math
 import argparse
 from pymavlink import mavutil

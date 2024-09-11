@@ -1,17 +1,25 @@
 ##########DEPENDENCIES#############
 
+import collections
+from collections.abc import MutableMapping
+
+collections.MutableMapping = collections.abc.MutableMapping
+
 from dronekit import connect, VehicleMode,LocationGlobalRelative,APIException
+
+
+
 import time
 import socket
-import exceptions
+# import exceptions
 import math
 import argparse
 
 
 #########FUNCTIONS#################
 
-#connection_string='/dev/ttyTHS1'
-#baud=57600
+connection_string='/dev/serial0'
+baud=57600
 
 def connectMyCopter():
 
@@ -19,7 +27,7 @@ def connectMyCopter():
 	parser.add_argument('--connect')
 	args = parser.parse_args()
 
-	connection_string = args.connect
+	# connection_string = args.connect
 
 
 	vehicle = connect(connection_string,baud=57600,wait_ready=True)
